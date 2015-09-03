@@ -8,14 +8,14 @@ use fact
 use dispmodule
 implicit none
 
-type Hbas
+type Hbas ! Hermitian basis
     complex(dp), dimension(:,:), allocatable :: matrix
     character(8) idx
     logical :: hermitian = .true.
     logical :: unitary = .false.
 end type Hbas
 
-type Ubas
+type Ubas ! Unitary basis
     complex(dp), dimension(:,:), allocatable :: matrix
     character(7) idx
     logical :: unitary = .true.
@@ -26,6 +26,11 @@ type HBasis
     type(Hbas), dimension(:), allocatable :: bas
     integer dimen
 end type HBasis
+
+type UBasis
+    type(Ubas), dimension(:), allocatable :: bas
+    integer dimen
+end type UBasis
 
 contains
 
